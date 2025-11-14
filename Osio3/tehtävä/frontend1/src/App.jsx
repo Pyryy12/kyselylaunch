@@ -25,7 +25,7 @@ function App() {
   }, [isRunning])
 
   const showQuestions = async () => {
-    const response = await fetch('http://localhost:3000/questions')
+    const response = await fetch('/questions')
     if (response.ok) {
       const json = await response.json()
       setAllQuestions(json)
@@ -33,7 +33,7 @@ function App() {
   }
 
   const users = async () => {
-    const response = await fetch('http://localhost:3000/users');
+    const response = await fetch('/users');
     if (response.ok) {
       const json = await response.json();
       setAllUsers(json);
@@ -42,7 +42,7 @@ function App() {
 
   const saveUser = async () => {
     const user = { username: userName, score: score, topic: topic, time: seconds }
-    const response = await fetch('http://localhost:3000/users', {
+    const response = await fetch('/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user)
