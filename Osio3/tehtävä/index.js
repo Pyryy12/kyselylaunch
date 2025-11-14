@@ -6,7 +6,7 @@ const { time } = require('console');
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static('dist'))
 app.get('/questions', async (request, response) => {
   const { data, error } = await supabase.from('questions').select('*');
   
